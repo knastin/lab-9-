@@ -9,7 +9,7 @@ public class VoronCalc extends JFrame {
   private JButton removeCrow;
 
   public VoronCalc(){
-    super("Crow calculator");
+    super("Crow calculator");//Заголовок окна
     //Подготавливаем компоненты объекта
     countLabel = new JLabel("Crows:" + voron);
     addCrow = new JButton("Add Crow");
@@ -18,7 +18,7 @@ public class VoronCalc extends JFrame {
     //Подготавливаем временные компоненты
     JPanel buttonsPanel = new JPanel(new FlowLayout()); 
     //Расставляем компоненты по местам
-    add(countLabel, BorderLayout.NORTH); //О размещении компонент поговорим позже
+    add(countLabel, BorderLayout.NORTH); 
 
     buttonsPanel.add(addCrow);
     buttonsPanel.add(removeCrow);
