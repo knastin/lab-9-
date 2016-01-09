@@ -10,6 +10,7 @@ public class VoronCalc extends JFrame {
 
   public VoronCalc(){
     super("Crow calculator");//Заголовок окна
+     setDefaultCloseOperation(EXIT_ON_CLOSE);
     countLabel = new JLabel("Crows:" + voron);
     addCrow = new JButton("Add Crow");
     removeCrow = new JButton("Remove Crow");
@@ -23,9 +24,27 @@ public class VoronCalc extends JFrame {
     buttonsPanel.add(removeCrow);
 
     add(buttonsPanel, BorderLayout.SOUTH);
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-  }
-
+   initListeners();
+   }
+    private void initListeners() {
+     addCrow.addActionListener(new ActionListener() {
+       public void actionPerformed(ActionEvent e) {
+         voron = voron + 1;   /* Добавляем одну ворону  */
+         updateCrowCounter(); /* Сообщаем аппликации, что количество ворон изменилось  */
+       }
+     });
+     removeCrow.addActionListener(new ActionListener() {
+       public void actionPerformed(ActionEvent e) {
+         if (voron > 0) {
+           voron = voron - 1;
+           updateCrowCounter(); /* Сообщаем аппликации, что количество ворон изменилось  */
+         }
+       }
+     });
+   }
+   private void updateCrowCounter() {
+     countLabel.setText("Crows:" + voron);
+   }
 public static void main(String[] args) {
     VoronCalc app = new VoronCalc();//Создаем экземпляр нашего приложения
     app.setVisible(true);//С этого момента приложение запущено!
