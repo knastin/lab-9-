@@ -28,8 +28,8 @@ public class VoronCalc extends JFrame {
   }
 
 public static void main(String[] args) {
-    VoronCalc app = new VoronCalc();
-    app.setVisible(true);
+    VoronCalc app = new VoronCalc();//Создаем экземпляр нашего приложения
+    app.setVisible(true);//С этого момента приложение запущено!
     app.pack(); //Эта команда подбирает оптимальный размер в зависимости от содержимого окна
   }
 }
